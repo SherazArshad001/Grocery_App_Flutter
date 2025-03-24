@@ -5,14 +5,14 @@ class SplashController extends GetxController {
   @override
   void onInit() {
     super.onInit();
-    _navigateToHome();
+    _navigateToOnBoarding();
   }
 
-  void _navigateToHome() {
+  void _navigateToOnBoarding() {
     Future.delayed(
       const Duration(seconds: 3),
       () {
-        Get.offNamed(AppRoutes.home);
+        Get.offNamed(AppRoutes.boarding);
       },
     );
   }
