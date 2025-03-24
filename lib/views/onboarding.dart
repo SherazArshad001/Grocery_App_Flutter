@@ -17,15 +17,15 @@ class OnboardingScreen extends StatelessWidget {
     final List<Map<String, String>> onboardingData = [
       {
         "image": AppAssets.onboarding1,
-        "text": "Welcome to Grocery App\nGet your groceries easily!",
+        "text": AppConstants.onBodingText1,
       },
       {
         "image": AppAssets.onboarding2,
-        "text": "Find fresh vegetables\nand quality products.",
+        "text": AppConstants.onBodingText2,
       },
       {
         "image": AppAssets.onboarding3,
-        "text": "Fast delivery\nat your doorstep!",
+        "text": AppConstants.onBodingText3,
       },
     ];
 
@@ -55,9 +55,11 @@ class OnboardingScreen extends StatelessWidget {
                     top: screenSize.height * 0.1,
                     left: 20,
                     right: 20,
-                    child: Text(onboardingData[index]["text"]!,
-                        textAlign: TextAlign.center,
-                        style: AppStyles.headingStyle),
+                    child: Text(
+                      onboardingData[index]["text"]!,
+                      textAlign: TextAlign.center,
+                      style: AppStyles.headingStyle,
+                    ),
                   ),
                 ],
               );
@@ -69,24 +71,26 @@ class OnboardingScreen extends StatelessWidget {
             bottom: 80,
             left: 0,
             right: 0,
-            child: Obx(() => Row(
-                  mainAxisAlignment: MainAxisAlignment.center,
-                  children: List.generate(
-                    onboardingData.length,
-                    (index) => AnimatedContainer(
-                      duration: const Duration(milliseconds: 300),
-                      margin: const EdgeInsets.symmetric(horizontal: 5),
-                      width: controller.currentPage.value == index ? 12 : 8,
-                      height: controller.currentPage.value == index ? 12 : 8,
-                      decoration: BoxDecoration(
-                        color: controller.currentPage.value == index
-                            ? AppColors.primaryColor
-                            : AppColors.secondaryColor,
-                        shape: BoxShape.circle,
-                      ),
+            child: Obx(
+              () => Row(
+                mainAxisAlignment: MainAxisAlignment.center,
+                children: List.generate(
+                  onboardingData.length,
+                  (index) => AnimatedContainer(
+                    duration: const Duration(milliseconds: 300),
+                    margin: const EdgeInsets.symmetric(horizontal: 5),
+                    width: controller.currentPage.value == index ? 12 : 8,
+                    height: controller.currentPage.value == index ? 12 : 8,
+                    decoration: BoxDecoration(
+                      color: controller.currentPage.value == index
+                          ? AppColors.primaryColor
+                          : AppColors.secondaryColor,
+                      shape: BoxShape.circle,
                     ),
                   ),
-                )),
+                ),
+              ),
+            ),
           ),
 
           /// Next Button
@@ -94,16 +98,22 @@ class OnboardingScreen extends StatelessWidget {
             bottom: 40,
             left: 20,
             right: 20,
-            child: Obx(() => ElevatedButton(
-                  onPressed: controller.nextPage,
-                  style: ElevatedButton.styleFrom(
-                    backgroundColor: AppColors.primaryColor,
-                    padding: const EdgeInsets.symmetric(vertical: 15),
+            child: Obx(
+              () => ElevatedButton(
+                onPressed: controller.nextPage,
+                style: ElevatedButton.styleFrom(
+                  backgroundColor: AppColors.primaryColor,
+                  padding: const EdgeInsets.symmetric(
+                    vertical: 30,
                   ),
-                  child: Text(controller.currentPage.value == 2
+                ),
+                child: Text(
+                  controller.currentPage.value == 2
                       ? AppConstants.getStarted
-                      : "Next"),
-                )),
+                      : AppConstants.next,
+                ),
+              ),
+            ),
           ),
         ],
       ),
