@@ -21,16 +21,15 @@ class SplashScreen extends StatelessWidget {
               fit: BoxFit.cover,
             ),
           ),
-          Padding(
-            padding: const EdgeInsets.all(20.0),
-            child: Column(
-              mainAxisAlignment: MainAxisAlignment.center,
-              children: [
-                Text(
-                  AppConstants.splashText,
-                  style: AppStyles.headingStyle,
-                ),
-              ],
+          Positioned(
+            top: 50,
+            left: 0,
+            right: 0,
+            child: Center(
+              child: Text(
+                AppConstants.splashText,
+                style: AppStyles.headingStyle,
+              ),
             ),
           ),
         ],
