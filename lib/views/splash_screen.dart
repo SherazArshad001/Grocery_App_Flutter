@@ -15,16 +15,22 @@ class SplashScreen extends StatelessWidget {
     return Scaffold(
       body: Stack(
         children: [
-          Image.asset(
-            AppAssets.splash,
+          Positioned.fill(
+            child: Image.asset(
+              AppAssets.splash,
+              fit: BoxFit.cover,
+            ),
           ),
           Padding(
             padding: const EdgeInsets.all(20.0),
-            child: Center(
-              child: Text(
-                AppConstants.appName,
-                style: AppStyles.headingStyle,
-              ),
+            child: Column(
+              mainAxisAlignment: MainAxisAlignment.center,
+              children: [
+                Text(
+                  AppConstants.splashText,
+                  style: AppStyles.headingStyle,
+                ),
+              ],
             ),
           ),
         ],
