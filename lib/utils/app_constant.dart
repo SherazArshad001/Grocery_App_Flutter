@@ -6,6 +6,7 @@ class AppConstants {
   static const String getStarted = "Get Start";
   static const String addToCart = "Add To Cart";
   static const String next = "Next";
+  static const String search = "Search";
 
   static const String splashText = "Welcome to\nBig Cart";
 
