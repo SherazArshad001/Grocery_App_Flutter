@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:grocery_app/utils/app_assets.dart';
 import 'package:grocery_app/widgets/app_textfield.dart';
 
 class HomeScreen extends StatelessWidget {
@@ -15,6 +16,18 @@ class HomeScreen extends StatelessWidget {
             SearchBarWidget(
               controller: searchController,
               onFilterPressed: () {},
+            ),
+            SizedBox(
+              height: 15,
+            ),
+            ClipRRect(
+              borderRadius: BorderRadius.circular(
+                15,
+              ),
+              child: Image.asset(
+                AppAssets.pic1,
+                fit: BoxFit.contain,
+              ),
             )
           ],
         ),
