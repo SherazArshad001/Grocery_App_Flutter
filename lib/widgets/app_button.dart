@@ -14,8 +14,8 @@ class CustomButton extends StatelessWidget {
       decoration: BoxDecoration(
         gradient: LinearGradient(
           colors: [
-            AppColors.primaryColor.withOpacity(0.8),  // Lighter shade
-            AppColors.primaryColor,  // Original color
+            AppColors.primaryColor.withOpacity(0.8),
+            AppColors.primaryColor,
           ],
           begin: Alignment.topLeft,
           end: Alignment.bottomRight,
