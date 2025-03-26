@@ -7,6 +7,10 @@ class AppConstants {
   static const String addToCart = "Add To Cart";
   static const String next = "Next";
   static const String search = "Search";
+  static const String categories = "Categories";
+
+
+  
 
   static const String splashText = "Welcome to\nBig Cart";
 

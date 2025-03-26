@@ -16,4 +16,9 @@ class AppStyles {
     fontSize: 16.0,
     color: AppColors.whiteColor,
   );
+  static const TextStyle boldText = TextStyle(
+    fontSize: 18.0,
+    color: AppColors.primaryTextColor,
+    fontWeight: FontWeight.bold,
+  );
 }
