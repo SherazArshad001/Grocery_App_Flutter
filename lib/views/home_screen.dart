@@ -49,7 +49,7 @@ class HomeScreen extends StatelessWidget {
             Expanded(
               child: ListView.builder(
                 scrollDirection: Axis.horizontal,
-                padding: const EdgeInsets.symmetric(vertical: 8),
+                padding: const EdgeInsets.symmetric(vertical: 10.0),
                 itemCount: categories.length,
                 physics: const BouncingScrollPhysics(),
                 itemBuilder: (context, index) {

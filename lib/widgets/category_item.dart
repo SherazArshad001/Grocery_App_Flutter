@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:grocery_app/models/cetagory_model.dart';
+import 'package:grocery_app/utils/app_colors.dart';
+import 'package:grocery_app/utils/app_style.dart';
 
 class CategoryItem extends StatelessWidget {
   final CategoryModel category;
@@ -10,34 +12,29 @@ class CategoryItem extends StatelessWidget {
   Widget build(BuildContext context) {
     return Column(
       children: [
-        Container(
-          height: 80,
-          width: 80,
-          decoration: BoxDecoration(
-            borderRadius: BorderRadius.circular(12),
-            boxShadow: [
-              BoxShadow(
-                color: Colors.black.withOpacity(0.1),
-                blurRadius: 5,
-                spreadRadius: 2,
+        Padding(
+          padding: const EdgeInsets.only(right: 10.0),
+          child: Container(
+            padding: const EdgeInsets.all(15),
+            decoration: BoxDecoration(
+              color: AppColors.secondaryTextColor,
+              shape: BoxShape.circle,
+            ),
+            child: ClipRRect(
+              borderRadius: BorderRadius.circular(12),
+              child: Image.asset(
+                category.imageUrl,
+                width: 40,
+                height: 40,
+                fit: BoxFit.cover,
               ),
-            ],
-          ),
-          child: ClipRRect(
-            borderRadius: BorderRadius.circular(12),
-            child: Image.asset(
-              category.imageUrl,
-              fit: BoxFit.cover,
             ),
           ),
         ),
         const SizedBox(height: 8),
         Text(
           category.name,
-          style: const TextStyle(
-            fontSize: 16,
-            fontWeight: FontWeight.w600,
-          ),
+          style: AppStyles.bodyStyle,
         ),
       ],
     );
