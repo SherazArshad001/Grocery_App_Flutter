@@ -28,7 +28,7 @@ class SplashScreen extends StatelessWidget {
             child: Center(
               child: Text(
                 AppConstants.splashText,
-                style: AppStyles.headingStyle,
+                style: AppStyles.headingLarge,
               ),
             ),
           ),

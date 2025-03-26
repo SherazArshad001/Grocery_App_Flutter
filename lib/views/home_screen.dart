@@ -43,7 +43,7 @@ class HomeScreen extends StatelessWidget {
             const SizedBox(height: 15),
             Text(
               AppConstants.categories,
-              style: AppStyles.boldText,
+              style: AppStyles.headingMedium,
             ),
             const SizedBox(height: 10),
             Expanded(

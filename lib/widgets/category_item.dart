@@ -12,21 +12,25 @@ class CategoryItem extends StatelessWidget {
   Widget build(BuildContext context) {
     return Column(
       children: [
-        Padding(
-          padding: const EdgeInsets.only(right: 10.0),
-          child: Container(
-            padding: const EdgeInsets.all(15),
-            decoration: BoxDecoration(
-              color: AppColors.secondaryTextColor,
-              shape: BoxShape.circle,
-            ),
-            child: ClipRRect(
-              borderRadius: BorderRadius.circular(12),
-              child: Image.asset(
-                category.imageUrl,
-                width: 40,
-                height: 40,
-                fit: BoxFit.cover,
+        SizedBox(
+          height: 80,
+          width: 90,
+          child: Padding(
+            padding: const EdgeInsets.only(right: 10.0),
+            child: Container(
+              padding: const EdgeInsets.all(15),
+              decoration: BoxDecoration(
+                color: AppColors.secondaryTextColor,
+                shape: BoxShape.circle,
+              ),
+              child: ClipRRect(
+                borderRadius: BorderRadius.circular(12),
+                child: Image.asset(
+                  category.imageUrl,
+                  width: 40,
+                  height: 40,
+                  fit: BoxFit.cover,
+                ),
               ),
             ),
           ),
@@ -34,7 +38,7 @@ class CategoryItem extends StatelessWidget {
         const SizedBox(height: 8),
         Text(
           category.name,
-          style: AppStyles.bodyStyle,
+          style: AppStyles.bodyRegular,
         ),
       ],
     );

@@ -58,7 +58,7 @@ class OnboardingScreen extends StatelessWidget {
                     child: Text(
                       onboardingData[index]["text"]!,
                       textAlign: TextAlign.center,
-                      style: AppStyles.headingStyle,
+                      style: AppStyles.headingLarge,
                     ),
                   ),
                 ],
