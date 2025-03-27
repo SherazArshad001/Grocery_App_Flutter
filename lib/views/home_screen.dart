@@ -66,6 +66,7 @@ class HomeScreen extends StatelessWidget {
               AppConstants.featureProduct,
               style: AppStyles.headingMedium,
             ),
+            
           ],
         ),
       ),
