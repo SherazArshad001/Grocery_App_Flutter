@@ -2,6 +2,8 @@ import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:grocery_app/controller/product_controller.dart';
 import 'package:grocery_app/models/product_model.dart';
+import 'package:grocery_app/utils/app_constant.dart';
+import 'package:grocery_app/widgets/app_button.dart';
 
 class ProductCard extends StatelessWidget {
   final Product product;
@@ -63,17 +65,10 @@ class ProductCard extends StatelessWidget {
               style: const TextStyle(fontSize: 12, color: Colors.grey),
             ),
             const Spacer(),
-            ElevatedButton(
+            CustomButton(
+              text: AppConstants.addToCart,
               onPressed: () {},
-              style: ElevatedButton.styleFrom(
-                backgroundColor: Colors.blue,
-                shape: RoundedRectangleBorder(
-                  borderRadius: BorderRadius.circular(8),
-                ),
-                minimumSize: const Size(double.infinity, 36),
-              ),
-              child: const Text('Add to Cart'),
-            ),
+            )
           ],
         ),
       ),

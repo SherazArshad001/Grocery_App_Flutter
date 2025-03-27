@@ -9,12 +9,9 @@ class AppRoutes {
 
   static const String home = '/home';
 
-
   static List<GetPage> pages = [
     GetPage(name: splash, page: () => const SplashScreen()),
     GetPage(name: boarding, page: () => const OnboardingScreen()),
-
-    GetPage(name: home, page: () => const HomeScreen()),
-
+    GetPage(name: home, page: () => HomeScreen()),
   ];
 }
