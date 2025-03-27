@@ -78,7 +78,6 @@ class HomeScreen extends StatelessWidget {
               Text(AppConstants.featureProduct, style: AppStyles.headingMedium),
               const SizedBox(height: 10),
 
-              // 🛍 Product Grid (Fixed Height)
               Obx(() {
                 return GridView.builder(
                   shrinkWrap: true, // ✅ Allows GridView to size dynamically
