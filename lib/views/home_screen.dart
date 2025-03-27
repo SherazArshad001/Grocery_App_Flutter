@@ -46,7 +46,8 @@ class HomeScreen extends StatelessWidget {
               style: AppStyles.headingMedium,
             ),
             const SizedBox(height: 10),
-            Expanded(
+            SizedBox(
+              height: 150,
               child: ListView.builder(
                 scrollDirection: Axis.horizontal,
                 padding: const EdgeInsets.symmetric(vertical: 10.0),
@@ -59,6 +60,11 @@ class HomeScreen extends StatelessWidget {
                   );
                 },
               ),
+            ),
+            const SizedBox(height: 15),
+            Text(
+              AppConstants.featureProduct,
+              style: AppStyles.headingMedium,
             ),
           ],
         ),

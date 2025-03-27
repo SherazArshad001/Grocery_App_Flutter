@@ -8,6 +8,8 @@ class AppConstants {
   static const String next = "Next";
   static const String search = "Search";
   static const String categories = "Categories";
+  static const String featureProduct = "Feature Product";
+
 
 
   
