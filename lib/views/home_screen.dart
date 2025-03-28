@@ -35,14 +35,11 @@ class HomeScreen extends StatelessWidget {
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
-              // 🔍 Search Bar
               SearchBarWidget(
                 controller: searchController,
                 onFilterPressed: () {},
               ),
               const SizedBox(height: 15),
-
-              // 🏞 Banner Image
               ClipRRect(
                 borderRadius: BorderRadius.circular(15),
                 child: Image.asset(
@@ -53,12 +50,8 @@ class HomeScreen extends StatelessWidget {
                 ),
               ),
               const SizedBox(height: 15),
-
-              // 📌 Categories Title
               Text(AppConstants.categories, style: AppStyles.headingMedium),
               const SizedBox(height: 10),
-
-              // 🏷 Categories List
               SizedBox(
                 height: 130,
                 child: ListView.separated(
@@ -73,16 +66,12 @@ class HomeScreen extends StatelessWidget {
                 ),
               ),
               const SizedBox(height: 15),
-
-              // ⭐ Featured Products Title
               Text(AppConstants.featureProduct, style: AppStyles.headingMedium),
               const SizedBox(height: 10),
-
               Obx(() {
                 return GridView.builder(
-                  shrinkWrap: true, // ✅ Allows GridView to size dynamically
-                  physics:
-                      const NeverScrollableScrollPhysics(), // ✅ Prevents nested scrolling issues
+                  shrinkWrap: true,
+                  physics: const NeverScrollableScrollPhysics(),
                   padding: const EdgeInsets.symmetric(horizontal: 8),
                   gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
                     crossAxisCount: 2,
