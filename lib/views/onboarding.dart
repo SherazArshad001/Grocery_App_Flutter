@@ -32,7 +32,6 @@ class OnboardingScreen extends StatelessWidget {
     return Scaffold(
       body: Stack(
         children: [
-          /// PageView for Onboarding Screens
           PageView.builder(
             controller: controller.pageController,
             onPageChanged: controller.onPageChanged,
@@ -40,7 +39,6 @@ class OnboardingScreen extends StatelessWidget {
             itemBuilder: (context, index) {
               return Stack(
                 children: [
-                  /// Background Image
                   SizedBox(
                     height: screenSize.height,
                     width: screenSize.width,
@@ -49,8 +47,6 @@ class OnboardingScreen extends StatelessWidget {
                       fit: BoxFit.cover,
                     ),
                   ),
-
-                  /// Heading Text
                   Positioned(
                     top: screenSize.height * 0.1,
                     left: 20,
@@ -65,8 +61,6 @@ class OnboardingScreen extends StatelessWidget {
               );
             },
           ),
-
-          /// Page Indicator Dots (Using Obx)
           Positioned(
             bottom: 80,
             left: 0,
@@ -92,8 +86,6 @@ class OnboardingScreen extends StatelessWidget {
               ),
             ),
           ),
-
-          /// Next Button
           Positioned(
             bottom: 40,
             left: 20,
