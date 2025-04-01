@@ -1,15 +1,19 @@
 import 'package:flutter/material.dart';
 
-class DetailScreen extends StatefulWidget {
-  const DetailScreen({super.key});
+class ProductDetailScreen extends StatefulWidget {
+  const ProductDetailScreen({super.key});
 
   @override
-  State<DetailScreen> createState() => _DetailScreenState();
+  State<ProductDetailScreen> createState() => _ProductDetailScreenState();
 }
 
-class _DetailScreenState extends State<DetailScreen> {
+class _ProductDetailScreenState extends State<ProductDetailScreen> {
   @override
   Widget build(BuildContext context) {
-    return Container();
+    return Column(
+      children: [
+
+      ],
+    );
   }
 }
