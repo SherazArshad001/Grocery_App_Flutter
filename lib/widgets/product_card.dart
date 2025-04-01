@@ -6,7 +6,7 @@ import 'package:grocery_app/utils/app_constant.dart';
 import 'package:grocery_app/widgets/app_button.dart';
 
 class ProductCard extends StatelessWidget {
-  final Product product;
+  final ProductModel product;
   final ProductController controller = Get.find();
 
   ProductCard({super.key, required this.product});

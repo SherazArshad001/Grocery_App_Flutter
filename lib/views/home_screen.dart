@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:grocery_app/controller/product_controller.dart';
 import 'package:grocery_app/models/cetagory_model.dart';
+import 'package:grocery_app/routes/app_routes.dart';
 import 'package:grocery_app/utils/app_assets.dart';
 import 'package:grocery_app/utils/app_constant.dart';
 import 'package:grocery_app/utils/app_style.dart';
@@ -81,7 +82,15 @@ class HomeScreen extends StatelessWidget {
                   ),
                   itemCount: controller.products.length,
                   itemBuilder: (context, index) {
-                    return ProductCard(product: controller.products[index]);
+                    final product = controller.products[index];
+
+                    return GestureDetector(
+                      onTap: () {
+                        Get.toNamed(AppRoutes.productDetails,
+                            arguments: product);
+                      },
+                      child: ProductCard(product: product),
+                    );
                   },
                 );
               }),
