@@ -29,75 +29,90 @@ class HomeScreen extends StatelessWidget {
     ];
 
     return Scaffold(
-      body: Padding(
-        padding: const EdgeInsets.all(15.0),
-        child: SingleChildScrollView(
-          scrollDirection: Axis.vertical,
-          child: Column(
-            crossAxisAlignment: CrossAxisAlignment.start,
-            children: [
-              SearchBarWidget(
-                controller: searchController,
-                onFilterPressed: () {},
-              ),
-              const SizedBox(height: 15),
-              ClipRRect(
-                borderRadius: BorderRadius.circular(15),
-                child: Image.asset(
-                  AppAssets.pic1,
-                  fit: BoxFit.cover,
-                  width: double.infinity,
-                  height: 150,
+      body: ScrollConfiguration(
+        behavior: NoScrollGlowBehavior(), // Custom scroll behavior
+        child: Padding(
+          padding: const EdgeInsets.all(15.0),
+          child: SingleChildScrollView(
+            scrollDirection: Axis.vertical,
+            child: Column(
+              crossAxisAlignment: CrossAxisAlignment.start,
+              children: [
+                SearchBarWidget(
+                  controller: searchController,
+                  onFilterPressed: () {},
                 ),
-              ),
-              const SizedBox(height: 15),
-              Text(AppConstants.categories, style: AppStyles.headingMedium),
-              const SizedBox(height: 10),
-              SizedBox(
-                height: 130,
-                child: ListView.separated(
-                  scrollDirection: Axis.horizontal,
-                  physics: const BouncingScrollPhysics(),
-                  itemCount: categories.length,
-                  separatorBuilder: (context, index) =>
-                      const SizedBox(width: 10),
-                  itemBuilder: (context, index) {
-                    return CategoryItem(category: categories[index]);
-                  },
-                ),
-              ),
-              const SizedBox(height: 15),
-              Text(AppConstants.featureProduct, style: AppStyles.headingMedium),
-              const SizedBox(height: 10),
-              Obx(() {
-                return GridView.builder(
-                  shrinkWrap: true,
-                  physics: const NeverScrollableScrollPhysics(),
-                  padding: const EdgeInsets.symmetric(horizontal: 8),
-                  gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
-                    crossAxisCount: 2,
-                    crossAxisSpacing: 10,
-                    mainAxisSpacing: 10,
-                    childAspectRatio: 181 / 234,
+                const SizedBox(height: 15),
+                ClipRRect(
+                  borderRadius: BorderRadius.circular(15),
+                  child: Image.asset(
+                    AppAssets.pic1,
+                    fit: BoxFit.cover,
+                    width: double.infinity,
+                    height: 150,
                   ),
-                  itemCount: controller.products.length,
-                  itemBuilder: (context, index) {
-                    final product = controller.products[index];
+                ),
+                const SizedBox(height: 15),
+                Text(AppConstants.categories, style: AppStyles.headingMedium),
+                const SizedBox(height: 10),
+                SizedBox(
+                  height: 130,
+                  child: ListView.separated(
+                    scrollDirection: Axis.horizontal,
+                    physics: const BouncingScrollPhysics(),
+                    itemCount: categories.length,
+                    separatorBuilder: (context, index) =>
+                        const SizedBox(width: 10),
+                    itemBuilder: (context, index) {
+                      return CategoryItem(category: categories[index]);
+                    },
+                  ),
+                ),
+                const SizedBox(height: 15),
+                Text(AppConstants.featureProduct,
+                    style: AppStyles.headingMedium),
+                const SizedBox(height: 10),
+                Obx(() {
+                  return GridView.builder(
+                    shrinkWrap: true,
+                    physics: const NeverScrollableScrollPhysics(),
+                    padding: const EdgeInsets.symmetric(horizontal: 8),
+                    gridDelegate:
+                        const SliverGridDelegateWithFixedCrossAxisCount(
+                      crossAxisCount: 2,
+                      crossAxisSpacing: 10,
+                      mainAxisSpacing: 10,
+                      childAspectRatio: 181 / 234,
+                    ),
+                    itemCount: controller.products.length,
+                    itemBuilder: (context, index) {
+                      final product = controller.products[index];
 
-                    return GestureDetector(
-                      onTap: () {
-                        Get.toNamed(AppRoutes.productDetails,
-                            arguments: product);
-                      },
-                      child: ProductCard(product: product),
-                    );
-                  },
-                );
-              }),
-            ],
+                      return GestureDetector(
+                        onTap: () {
+                          Get.toNamed(AppRoutes.productDetails,
+                              arguments: product);
+                        },
+                        child: ProductCard(product: product),
+                      );
+                    },
+                  );
+                }),
+              ],
+            ),
           ),
         ),
       ),
     );
+  }
+}
+
+// Custom behavior to remove the scroll indicator (glow)
+class NoScrollGlowBehavior extends MaterialScrollBehavior {
+  @override
+  Widget buildViewportChrome(
+      BuildContext context, Widget child, AxisDirection axisDirection) {
+    // Just return the child widget without any glow effect
+    return child;
   }
 }
