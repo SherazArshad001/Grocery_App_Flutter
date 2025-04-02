@@ -30,7 +30,7 @@ class HomeScreen extends StatelessWidget {
 
     return Scaffold(
       body: ScrollConfiguration(
-        behavior: NoScrollGlowBehavior(), // Custom scroll behavior
+        behavior: NoScrollGlowBehavior(), 
         child: Padding(
           padding: const EdgeInsets.all(15.0),
           child: SingleChildScrollView(
@@ -107,12 +107,12 @@ class HomeScreen extends StatelessWidget {
   }
 }
 
-// Custom behavior to remove the scroll indicator (glow)
+
 class NoScrollGlowBehavior extends MaterialScrollBehavior {
   @override
   Widget buildViewportChrome(
       BuildContext context, Widget child, AxisDirection axisDirection) {
-    // Just return the child widget without any glow effect
+    
     return child;
   }
 }
