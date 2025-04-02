@@ -24,7 +24,7 @@ class ProductDetailsScreen extends StatelessWidget {
           children: [
             Center(
               child: Hero(
-                tag: 'product_${product.id}',
+                tag: product.imageUrl,
                 child: Image.network(product.imageUrl,
                     height: 200, fit: BoxFit.cover),
               ),

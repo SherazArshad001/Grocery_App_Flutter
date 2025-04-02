@@ -29,7 +29,7 @@ class CategoryItem extends StatelessWidget {
                   category.imageUrl,
                   width: 40,
                   height: 40,
-                  fit: BoxFit.cover,
+                  fit: BoxFit.contain,
                 ),
               ),
             ),

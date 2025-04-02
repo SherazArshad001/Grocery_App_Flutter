@@ -27,11 +27,14 @@ class ProductCard extends StatelessWidget {
               children: [
                 ClipRRect(
                   borderRadius: BorderRadius.circular(8),
-                  child: Image.asset(
-                    product.imageUrl, // Load from assets
-                    width: double.infinity,
-                    height: 100,
-                    fit: BoxFit.cover,
+                  child: Hero(
+                    tag: product.imageUrl,
+                    child: Image.asset(
+                      product.imageUrl, // Load from assets
+                      width: double.infinity,
+                      height: 100,
+                      fit: BoxFit.contain,
+                    ),
                   ),
                 ),
                 Positioned(

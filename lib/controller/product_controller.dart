@@ -65,7 +65,7 @@ class ProductController extends GetxController {
   }
 
   void toggleLike(String productId) {
-    var product = products.firstWhere((p) => p.id == productId);
-    product.isLiked.value = !product.isLiked.value;
+    var product = products.firstWhereOrNull((p) => p.id == productId);
+    product?.toggleLike();
   }
 }

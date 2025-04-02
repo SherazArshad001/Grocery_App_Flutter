@@ -7,7 +7,7 @@ class ProductModel {
   final String price;
   final String type;
   final String description;
-  RxBool isLiked;
+  final RxBool _isLiked;
 
   ProductModel({
     required this.id,
@@ -17,5 +17,8 @@ class ProductModel {
     required this.type,
     required this.description,
     bool isLiked = false,
-  }) : isLiked = RxBool(isLiked);
+  }) : _isLiked = RxBool(isLiked);
+
+  RxBool get isLiked => _isLiked;
+  void toggleLike() => _isLiked.value = !_isLiked.value;
 }

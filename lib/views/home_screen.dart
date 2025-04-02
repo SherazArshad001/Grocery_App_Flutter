@@ -30,7 +30,7 @@ class HomeScreen extends StatelessWidget {
 
     return Scaffold(
       body: ScrollConfiguration(
-        behavior: NoScrollGlowBehavior(), 
+        behavior: NoScrollGlowBehavior(),
         child: Padding(
           padding: const EdgeInsets.all(15.0),
           child: SingleChildScrollView(
@@ -107,12 +107,10 @@ class HomeScreen extends StatelessWidget {
   }
 }
 
-
 class NoScrollGlowBehavior extends MaterialScrollBehavior {
   @override
   Widget buildViewportChrome(
       BuildContext context, Widget child, AxisDirection axisDirection) {
-    
     return child;
   }
 }
