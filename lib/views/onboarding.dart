@@ -95,9 +95,7 @@ class OnboardingScreen extends StatelessWidget {
                 onPressed: controller.nextPage,
                 style: ElevatedButton.styleFrom(
                   backgroundColor: AppColors.primaryColor,
-                  padding: const EdgeInsets.symmetric(
-                    vertical: 30,
-                  ),
+                  padding: const EdgeInsets.symmetric(vertical: 20),
                 ),
                 child: Text(
                   controller.currentPage.value == 2
