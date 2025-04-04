@@ -2,8 +2,8 @@ import 'package:flutter/material.dart';
 import 'package:grocery_app/utils/app_colors.dart';
 
 class AppStyles {
-  /// Heading styles
-  static TextStyle headingLarge = TextStyle(
+  // ===== Heading Styles =====
+  static const TextStyle headingLarge = TextStyle(
     fontSize: 24.0,
     fontWeight: FontWeight.bold,
     color: AppColors.primaryTextColor,
@@ -15,7 +15,7 @@ class AppStyles {
     color: AppColors.primaryTextColor,
   );
 
-  /// Body text styles
+  // ===== Body Text Styles =====
   static const TextStyle bodyRegular = TextStyle(
     fontSize: 16.0,
     color: AppColors.secondaryTextColor,
@@ -25,9 +25,11 @@ class AppStyles {
     fontSize: 16.0,
     color: AppColors.whiteColor,
   );
+
+  // ===== Price Text Style =====
   static const TextStyle priceText = TextStyle(
-    fontSize: 18,
+    fontSize: 18.0,
     fontWeight: FontWeight.bold,
-    color: AppColors.primaryColor, // or any color you'd like for the price text
+    color: AppColors.primaryColor, // Use the primary color for price
   );
 }
