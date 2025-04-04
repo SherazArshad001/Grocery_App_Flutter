@@ -3,7 +3,11 @@ import 'package:grocery_app/models/product_model.dart';
 import 'package:grocery_app/utils/app_assets.dart';
 
 class ProductController extends GetxController {
+  // Observable list of products
   var products = <ProductModel>[].obs;
+
+  // Observable cart items list
+  final RxList<ProductModel> cartItems = <ProductModel>[].obs;
 
   @override
   void onInit() {
@@ -11,6 +15,7 @@ class ProductController extends GetxController {
     fetchProducts();
   }
 
+  // Fetch product list (dummy data)
   void fetchProducts() {
     products.assignAll([
       ProductModel(
@@ -64,8 +69,28 @@ class ProductController extends GetxController {
     ]);
   }
 
+  // Toggle favorite status of a product
   void toggleLike(String productId) {
     var product = products.firstWhereOrNull((p) => p.id == productId);
     product?.toggleLike();
+  }
+
+  // Add a product to cart
+  void addToCart(ProductModel product) {
+    if (cartItems.any((item) => item.id == product.id)) {
+      Get.snackbar(
+        "Already in Cart",
+        "${product.name} is already in your cart.",
+        snackPosition: SnackPosition.BOTTOM,
+      );
+    } else {
+      cartItems.add(product);
+      Get.snackbar(
+        "Added to Cart",
+        "${product.name} added successfully!",
+        snackPosition: SnackPosition.BOTTOM,
+        duration: const Duration(seconds: 2),
+      );
+    }
   }
 }
