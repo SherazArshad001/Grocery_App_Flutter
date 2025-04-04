@@ -1,3 +1,4 @@
+
 import 'package:get/get.dart';
 import 'package:grocery_app/models/product_model.dart';
 import 'package:grocery_app/utils/app_assets.dart';
@@ -5,9 +6,11 @@ import 'package:grocery_app/utils/app_assets.dart';
 class ProductController extends GetxController {
   // Observable list of products
   var products = <ProductModel>[].obs;
-
   // Observable cart items list
   final RxList<ProductModel> cartItems = <ProductModel>[].obs;
+  // Loading and error states
+  var isLoading = true.obs;
+  var errorMessage = ''.obs;
 
   @override
   void onInit() {
@@ -16,9 +19,14 @@ class ProductController extends GetxController {
   }
 
   // Fetch product list (dummy data)
-  void fetchProducts() {
-    products.assignAll([
-      ProductModel(
+  Future<void> fetchProducts() async {
+    try {
+      // Simulate API call with delay
+      await Future.delayed(const Duration(seconds: 2));
+      isLoading.value = false;
+
+      products.assignAll([
+        ProductModel(
         id: '1',
         imageUrl: AppAssets.fruit1,
         name: 'Apple',
@@ -66,13 +74,23 @@ class ProductController extends GetxController {
         type: 'Per Kg',
         description: 'Sun-kissed oranges with a juicy and tangy flavor.',
       ),
-    ]);
+        // Add more products here...
+      ]);
+    } catch (error) {
+      isLoading.value = false;
+      errorMessage.value = "Failed to load products. Please try again later.";
+      Get.snackbar("Error", errorMessage.value, snackPosition: SnackPosition.BOTTOM);
+    }
   }
 
   // Toggle favorite status of a product
   void toggleLike(String productId) {
     var product = products.firstWhereOrNull((p) => p.id == productId);
-    product?.toggleLike();
+    if (product != null) {
+      product.toggleLike();
+    } else {
+      Get.snackbar("Error", "Product not found", snackPosition: SnackPosition.BOTTOM);
+    }
   }
 
   // Add a product to cart
@@ -92,5 +110,15 @@ class ProductController extends GetxController {
         duration: const Duration(seconds: 2),
       );
     }
+  }
+
+  // Calculate the total price of items in the cart
+  String getCartTotal() {
+    double total = 0.0;
+    for (var item in cartItems) {
+      double price = double.tryParse(item.price.replaceAll('\$', '')) ?? 0.0;
+      total += price;
+    }
+    return "\$${total.toStringAsFixed(2)}";
   }
 }
