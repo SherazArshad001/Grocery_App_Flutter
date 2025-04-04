@@ -13,12 +13,15 @@ import 'package:grocery_app/widgets/product_card.dart';
 class HomeScreen extends StatelessWidget {
   HomeScreen({super.key});
 
+  // Controller binding to make it available across the widget tree
   final ProductController controller = Get.find<ProductController>();
 
   @override
   Widget build(BuildContext context) {
+    // TextEditingController for search functionality
     TextEditingController searchController = TextEditingController();
 
+    // Category List Initialization
     final List<CategoryModel> categories = [
       CategoryModel(name: "Fruits", imageUrl: AppAssets.category1),
       CategoryModel(name: "Vegetables", imageUrl: AppAssets.category2),
@@ -30,7 +33,7 @@ class HomeScreen extends StatelessWidget {
 
     return Scaffold(
       body: ScrollConfiguration(
-        behavior: NoScrollGlowBehavior(),
+        behavior: NoScrollGlowBehavior(), // To remove scroll glow effect
         child: Padding(
           padding: const EdgeInsets.all(15.0),
           child: SingleChildScrollView(
@@ -38,11 +41,14 @@ class HomeScreen extends StatelessWidget {
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
+                // Search Bar with filter functionality
                 SearchBarWidget(
                   controller: searchController,
                   onFilterPressed: () {},
                 ),
                 const SizedBox(height: 15),
+
+                // Banner Image at the top
                 ClipRRect(
                   borderRadius: BorderRadius.circular(15),
                   child: Image.asset(
@@ -53,8 +59,12 @@ class HomeScreen extends StatelessWidget {
                   ),
                 ),
                 const SizedBox(height: 15),
+
+                // Categories Header
                 Text(AppConstants.categories, style: AppStyles.headingMedium),
                 const SizedBox(height: 10),
+
+                // Horizontal list view for categories
                 SizedBox(
                   height: 130,
                   child: ListView.separated(
@@ -69,9 +79,13 @@ class HomeScreen extends StatelessWidget {
                   ),
                 ),
                 const SizedBox(height: 15),
+
+                // Featured Products Header
                 Text(AppConstants.featureProduct,
                     style: AppStyles.headingMedium),
                 const SizedBox(height: 10),
+
+                // Grid view for displaying products
                 Obx(() {
                   return GridView.builder(
                     shrinkWrap: true,
