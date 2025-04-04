@@ -1,4 +1,4 @@
-import 'package:get/get_rx/src/rx_types/rx_types.dart';
+import 'package:get/get.dart';
 
 class ProductModel {
   final String id;
@@ -7,8 +7,11 @@ class ProductModel {
   final String price;
   final String type;
   final String description;
+
+  // Use a private RxBool to control the like status
   final RxBool _isLiked;
 
+  // Constructor for initializing the product model, including the default like status
   ProductModel({
     required this.id,
     required this.imageUrl,
@@ -19,6 +22,14 @@ class ProductModel {
     bool isLiked = false,
   }) : _isLiked = RxBool(isLiked);
 
+  // Getter to expose the like status as an RxBool (reactive state)
   RxBool get isLiked => _isLiked;
-  void toggleLike() => _isLiked.value = !_isLiked.value;
+
+  // Method to toggle the like status
+  void toggleLike() {
+    _isLiked.value = !_isLiked.value;
+  }
+
+  // Optionally, expose the value as a bool for convenience
+  bool get isLikedValue => _isLiked.value;
 }
